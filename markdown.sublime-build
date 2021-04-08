@@ -1,0 +1,10 @@
+// Pandoc markdown build system
+{	
+	"selector": "source.markdown",
+	"file_patterns": ["*.md"],
+	"working_dir": "$file_path",
+	"cmd": ["pandoc", "$file", 
+		"-t", "latex",
+		"-o", "${file_path}/${file_base_name}.pdf"],
+	"cmd": ["xdg-open", "${file_path}/${file_base_name}.pdf"]
+}
