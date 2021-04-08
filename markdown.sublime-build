@@ -6,5 +6,6 @@
 	"cmd": ["pandoc", "$file", 
 		"-t", "latex",
 		"-o", "${file_path}/${file_base_name}.pdf"],
+	"cmd": ["sleep", "0.5s"],
 	"cmd": ["xdg-open", "${file_path}/${file_base_name}.pdf"]
 }
