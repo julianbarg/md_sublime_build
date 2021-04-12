@@ -1,11 +1,13 @@
 // Pandoc markdown build system
 {	
 	"selector": "source.markdown",
-	"shell_cmd": "pandoc $file -o ${file_path}/${file_base_name}.pdf && sleep 0.5s && xdg-open ${file_path}/${file_base_name}.pdf",
+	"file_patterns": ["*.md"],
+	"shell_cmd": "pandoc -f markdown --pdf-engine=xelatex $file -V 'mainfont:Times New Roman' -o ${file_path}/${file_base_name}.pdf && xdg-open ${file_path}/${file_base_name}.pdf",
 
 	"variants": [
 		{  "name": "Compile to word",
-		   "shell_cmd": "pandoc $file -o ${file_path}/${file_base_name}.docx --reference-doc ~/pandoc_templates/latex_template.docx  && sleep 0.5s && xdg-open ${file_path}/${file_base_name}.docx"
+		   "shell_cmd": "pandoc $file -f markdown -o ${file_path}/${file_base_name}.docx --reference-doc ~/Templates/latex_template.docx  && xdg-open ${file_path}/${file_base_name}.docx"
 		},
 	]
 }
+
